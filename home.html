@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Tech Summit: Innovate 2026</title>
+    <style>
+        /* --- FONTS --- */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Nunito:wght@600;800&display=swap');
+
+        :root {
+            --bg-grid: #e0f2f7; 
+            --grid-line: #aaccdd;
+            --primary-blue: #4285F4;
+            --google-red: #EA4335;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-grid);
+            /* Responsive Grid Background */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 3rem;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid rgba(255,255,255,0.8);
+            width: 100%;
+            max-width: 950px;
+            transition: all 0.3s ease;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            line-height: 1.1;
+            filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.15));
+        }
+
+        .line-1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .line-2 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; margin-bottom: 0.5rem; }
+        .line-3 { font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; display: inline-block; position: relative; margin-bottom: 1.5rem; }
+
+        /* Colors */
+        .text-red { color: #EA4335; } .text-blue { color: #4285F4; } .text-green { color: #34A853; } .text-yellow { color: #FBBC05; }
+
+        .hat-icon {
+            position: absolute; top: -30px; left: -15px;
+            font-size: clamp(2rem, 5vw, 3rem); transform: rotate(-15deg);
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
+        .college-name {
+            font-family: 'Nunito', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #001d3d; font-weight: 800; margin-bottom: 2rem;
+            text-transform: uppercase; letter-spacing: 1px; padding: 0 10px;
+        }
+
+        /* --- NOTIFICATION BOX (Updated) --- */
+        .notification-box {
+            background: #fff;
+            border: 3px solid var(--primary-blue);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(66, 133, 244, 0.2);
+            margin-top: 1rem;
+            display: inline-block;
+            min-width: 60%;
+            max-width: 95%;
+        }
+
+        .question-text {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 700;
+            color: #555; /* Slightly lighter for the question */
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .answer-text {
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 900;
+            color: var(--primary-blue);
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Coming Soon Style */
+        .coming-soon {
+            margin-top: 15px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 900;
+            color: var(--google-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.7; transform: scale(1); }
+        }
+
+        /* --- FOOTER LOGOS --- */
+        .footer-logos {
+            margin-top: 3rem;
+            display: flex; justify-content: center; align-items: center;
+            gap: 30px; background: rgba(255,255,255,0.9); padding: 20px 40px;
+            border-radius: 50px; border: 1px solid #ccc; flex-wrap: wrap;
+        }
+        
+        .sponsor-logo {
+            height: 60px; width: auto; object-fit: contain; display: block;
+            transition: height 0.3s ease;
+        }
+        
+        .separator { width: 2px; height: 35px; background: #ddd; margin: 0 5px; }
+        .gsa-wrapper { display: flex; align-items: center; gap: 10px; }
+        .gsa-text { font-weight: 700; color: #444; font-size: 1rem; text-align: left; line-height: 1.2; font-family: 'Nunito', sans-serif; max-width: 150px; }
+
+        /* --- FLOATING ICONS --- */
+        .floater {
+            position: absolute; font-size: 3rem; opacity: 0.8;
+            filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.1));
+            animation: float 6s ease-in-out infinite; z-index: 0; pointer-events: none;
+        }
+        .f1 { top: 5%; left: 5%; } .f2 { top: 15%; right: 10%; animation-delay: 1s; } 
+        .f3 { bottom: 10%; left: 5%; animation-delay: 2s; } .f4 { bottom: 15%; right: 5%; font-size: 4rem; animation-delay: 1.5s; } 
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* --- MOBILE ADJUSTMENTS --- */
+        @media (max-width: 768px) {
+            body { padding: 15px; background-size: 20px 20px; }
+            .container { padding: 2rem 1rem; width: 100%; }
+            .hat-icon { top: -20px; left: -10px; }
+            
+            .notification-box { padding: 1.5rem; width: 100%; border-width: 2px; }
+
+            .footer-logos { padding: 15px; gap: 20px; border-radius: 20px; flex-direction: column; }
+            .sponsor-logo { height: 45px; } 
+            .separator { display: none; }
+            .gsa-wrapper { justify-content: center; text-align: left; }
+            .floater { opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floater f1">🎓</div>
+    <div class="floater f2">💡</div>
+    <div class="floater f3">🚀</div>
+    <div class="floater f4">📱</div>
+
+    <div class="container">
+        <div style="margin-bottom: 20px; opacity: 0.8; font-weight: 600; color: #555;">
+            <span style="font-size: 1.2rem;"></span> Google Student Ambassador
+        </div>
+
+        <h1 class="line-1">
+            <span class="text-red">INDIA</span> 
+            <span class="text-blue">TECH</span> 
+            <span class="text-yellow">SUMMIT</span>
+        </h1>
+
+        <h2 class="line-2">
+            <span class="text-blue">INNOVATE</span> 
+            <span class="text-green">2026</span>
+        </h2>
+
+        <h3 class="line-3">
+            <div class="hat-icon">🎅</div>
+            <span class="text-yellow">I</span><span class="text-blue">D</span><span class="text-red">E</span><span class="text-green">A</span><span class="text-yellow">T</span><span class="text-blue">H</span><span class="text-red">O</span><span class="text-green">N</span>
+        </h3>
+
+        <p class="college-name">
+            DKTE Society's Yashwantrao Chavan Polytechnic, Ichalkaranji
+        </p>
+
+        <div class="notification-box">
+            
+            <p class="question-text">
+                Are We Participating?
+                <span class="answer-text">Yes, We Are Participating!</span>
+            </p>
+            
+            <div class="coming-soon">Coming Soon....</div>
+        </div>
+
+        <div class="footer-logos">
+            
+            <img src="ChatGPT Image Aug 18, 2025, 09_17_03 PM.png" alt="Tech-Hub" class="sponsor-logo">
+            
+            <div class="separator"></div>
+            
+            <img src="DKTE-LOGO-300x80.png" alt="DKTE" class="sponsor-logo">
+            
+            <div class="separator"></div>
+            
+            <div class="gsa-wrapper">
+                <img src="GSA logo.jpeg" alt="GSA" class="sponsor-logo">
+                <span class="gsa-text">Google Student Ambassador</span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
